@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Colibrí - Evolución Ecosistema ACH PSE</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif; background: #ffffff; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 40px 30px; }
+        
+        /* Header */
+        .header { text-align: center; margin-bottom: 50px; }
+        .header h1 { color: #1460AB; font-size: 42px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.5px; }
+        .header .subtitle { color: #555; font-size: 18px; font-weight: 300; }
+        .header .divider { width: 120px; height: 4px; background: #FDB717; margin: 20px auto 0; border-radius: 2px; }
+
+        /* Secciones */
+        .section { margin-bottom: 50px; }
+        .section-title { color: #1460AB; font-size: 24px; font-weight: 700; margin-bottom: 30px; text-align: center; }
+
+        /* Grid 3 columnas */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; }
+        .card { background: white; border: 2px solid #E8E8E8; border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s ease; }
+        .card:hover { border-color: #FDB717; box-shadow: 0 8px 24px rgba(20, 96, 171, 0.12); }
+        .card-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #1460AB 0%, #185FA5 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 32px; color: white; }
+        .card h3 { color: #1460AB; font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+        .card p { color: #666; font-size: 14px; line-height: 1.6; }
+
+        /* Pilares */
+        .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .pillar { background: white; border-left: 5px solid #FDB717; padding: 20px; border-radius: 8px; }
+        .pillar h4 { color: #1460AB; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+        .pillar p { color: #666; font-size: 14px; line-height: 1.6; }
+
+        /* Habilitadores */
+        .habilitadores-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .habilitador-card { position: relative; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(20, 96, 171, 0.08); transition: all 0.3s ease; border: 1px solid #E8E8E8; }
+        .habilitador-card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(20, 96, 171, 0.16); border-color: #FDB717; }
+        
+        .habilitador-header { background: linear-gradient(135deg, #1460AB 0%, #185FA5 100%); padding: 25px; color: white; display: flex; align-items: center; gap: 15px; min-height: 80px; }
+        .habilitador-numero { width: 50px; height: 50px; background: #FDB717; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; color: #1460AB; flex-shrink: 0; }
+        .habilitador-titulo { font-size: 16px; font-weight: 700; line-height: 1.4; }
+        
+        .habilitador-body { padding: 25px; }
+        .habilitador-icon { font-size: 32px; margin-bottom: 15px; }
+        .habilitador-text { font-size: 14px; color: #333; line-height: 1.7; margin-bottom: 15px; }
+        .habilitador-benefit { background: #F0F7FF; border-left: 3px solid #FDB717; padding: 12px 15px; border-radius: 6px; font-size: 13px; font-weight: 600; color: #1460AB; display: flex; align-items: center; gap: 10px; }
+        .benefit-check { font-size: 16px; color: #FDB717; }
+
+        /* Sección de Impacto */
+        .impact-section { position: relative; margin-top: 50px; padding: 60px 40px; background: linear-gradient(135deg, #1460AB 0%, #0F3A7D 50%, #185FA5 100%); border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(20, 96, 171, 0.3); }
+        .impact-section::before { content: ''; position: absolute; top: -50%; right: -20%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(253, 183, 23, 0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+        .impact-section::after { content: ''; position: absolute; bottom: -30%; left: -10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(253, 183, 23, 0.1) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+        
+        .impact-content { position: relative; z-index: 1; text-align: center; }
+        .impact-logo { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 30px; font-size: 48px; }
+        .impact-logo-text { font-size: 20px; font-weight: 700; color: #FDB717; letter-spacing: 2px; }
+        .impact-tagline { font-size: 18px; color: rgba(255, 255, 255, 0.9); margin-bottom: 25px; font-weight: 300; letter-spacing: 1px; }
+        .impact-main { font-size: 56px; font-weight: 800; color: #FDB717; margin-bottom: 20px; line-height: 1.2; text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); letter-spacing: -1px; }
+        .impact-secondary { font-size: 32px; font-weight: 700; color: white; margin-bottom: 40px; line-height: 1.3; }
+        .impact-divider { width: 100px; height: 3px; background: #FDB717; margin: 30px auto; border-radius: 2px; }
+        .impact-description { font-size: 16px; color: rgba(255, 255, 255, 0.95); line-height: 1.8; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        .impact-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; margin-top: 40px; padding-top: 30px; border-top: 2px solid rgba(253, 183, 23, 0.3); }
+        .stat-item { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 12px; backdrop-filter: blur(10px); border: 1px solid rgba(253, 183, 23, 0.2); }
+        .stat-number { font-size: 28px; font-weight: 800; color: #FDB717; margin-bottom: 8px; }
+        .stat-label { font-size: 13px; color: rgba(255, 255, 255, 0.85); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* Botones */
+        .impact-cta { margin-top: 40px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .btn { padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-primary { background: #FDB717; color: #1460AB; }
+        .btn-primary:hover { background: white; box-shadow: 0 12px 30px rgba(253, 183, 23, 0.4); transform: translateY(-2px); }
+        .btn-secondary { background: transparent; color: white; border: 2px solid white; }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2); transform: translateY(-2px); }
+
+        /* Footer */
+        .footer { text-align: center; margin-top: 40px; padding: 30px; color: #666; font-size: 13px; border-top: 2px solid #E8E8E8; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 32px; }
+            .pillars { grid-template-columns: 1fr; }
+            .impact-main { font-size: 40px; }
+            .impact-secondary { font-size: 24px; }
+            .impact-section { padding: 40px 25px; }
+            .grid-3 { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            body { background: white; }
+            .container { background: white; padding: 0; }
+            .card, .pillar, .habilitador-card, .impact-section { box-shadow: none; page-break-inside: avoid; }
+        }
+    </style>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">S3FFZP2ZCH3R-777644813-3805</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">e11ed95a-a77c-4dcc-bebf-2b0213497dd6</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://achcolombia.sharepoint.com/sites/ESP/_layouts/15/DocIdRedir.aspx?ID=S3FFZP2ZCH3R-777644813-3805, S3FFZP2ZCH3R-777644813-3805</mso:_dlc_DocIdUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🧬 PROYECTO COLIBRÍ</h1>
+            <p class="subtitle">Evolución del Ecosistema ACH - PSE</p>
+            <div class="divider"></div>
+        </div>
+
+        <!-- Concepto Principal -->
+        <div class="section">
+            <div class="section-title">Un Equipo con Propósito Compartido</div>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon">👥</div>
+                    <h3>Equipo Multifuncional</h3>
+                    <p>Colaboradores con altos estándares, con autoridad y poder decisor en la evolución del servicio</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Enfoque Dedicado</h3>
+                    <p>Célula designada exclusivamente para la evolución del ecosistema ACH - PSE</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <h3>Apoyo Ágil</h3>
+                    <p>Excepción en horas, no en semanas. Respaldo inmediato del sponsor, presidente y VPs</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pilares de Trabajo -->
+        <div class="section">
+            <div class="section-title">Cinco Pilares Fundamentales</div>
+            <div class="pillars">
+                <div class="pillar">
+                    <h4>🌍 Responsabilidad Colectiva</h4>
+                    <p>La evolución nos pertenece a todos en la compañía, no solo al equipo</p>
+                </div>
+                <div class="pillar">
+                    <h4>🛡️ Respaldo Completo</h4>
+                    <p>Un equipo con el respaldo de una compañía entera</p>
+                </div>
+                <div class="pillar">
+                    <h4>💎 Excelencia Estratégica</h4>
+                    <p>Hablamos del futuro del servicio principal - es responsabilidad de todos dar lo mejor</p>
+                </div>
+                <div class="pillar">
+                    <h4>🎯 Comunicación Continua</h4>
+                    <p>El feedback oportuno es lo más importante. La voz de la compañía es escuchada</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Habilitadores Operacionales -->
+        <div class="section">
+            <div class="section-title">Habilitadores Operacionales</div>
+            <div class="habilitadores-grid">
+                <div class="habilitador-card">
+                    <div class="habilitador-header">
+                        <div class="habilitador-numero">1</div>
+                        <div class="habilitador-titulo">Exclusividad de Enfoque</div>
+                    </div>
+                    <div class="habilitador-body">
+                        <div class="habilitador-icon">🎯</div>
+                        <p class="habilitador-text">El equipo NO sale a atención del BAU normal de operación en sus líneas de trabajo</p>
+                        <div class="habilitador-benefit">
+                            <span class="benefit-check">✓</span>
+                            <span>Dedicación 100% al proyecto</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="habilitador-card">
+                    <div class="habilitador-header">
+                        <div class="habilitador-numero">2</div>
+                        <div class="habilitador-titulo">Desbloqueo Acelerado</div>
+                    </div>
+                    <div class="habilitador-body">
+                        <div class="habilitador-icon">⚡</div>
+                        <p class="habilitador-text">Cuando algo bloquea: ambiente, firma, proveedor - se desatasca en HORAS, no semanas</p>
+                        <div class="habilitador-benefit">
+                            <span class="benefit-check">✓</span>
+                            <span>Resolución ágil garantizada</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="habilitador-card">
+                    <div class="habilitador-header">
+                        <div class="habilitador-numero">3</div>
+                        <div class="habilitador-titulo">Priorización Compañía</div>
+                    </div>
+                    <div class="habilitador-body">
+                        <div class="habilitador-icon">🏆</div>
+                        <p class="habilitador-text">Actividades del equipo tienen ALTA priorización de atención a nivel compañía</p>
+                        <div class="habilitador-benefit">
+                            <span class="benefit-check">✓</span>
+                            <span>Soporte ejecutivo garantizado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="habilitador-card">
+                    <div class="habilitador-header">
+                        <div class="habilitador-numero">4</div>
+                        <div class="habilitador-titulo">Excepción en Eventos</div>
+                    </div>
+                    <div class="habilitador-body">
+                        <div class="habilitador-icon">📋</div>
+                        <p class="habilitador-text">Excepción en participación de eventos compañía y actividades de Talento Humano</p>
+                        <div class="habilitador-benefit">
+                            <span class="benefit-check">✓</span>
+                            <span>Protección contra distracciones</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="habilitador-card">
+                    <div class="habilitador-header">
+                        <div class="habilitador-numero">5</div>
+                        <div class="habilitador-titulo">Asesoría Ejecutiva</div>
+                    </div>
+                    <div class="habilitador-body">
+                        <div class="habilitador-icon">👔</div>
+                        <p class="habilitador-text">VPs, Directores y Gerentes disponibles para transferencia de conocimiento y experiencia</p>
+                        <div class="habilitador-benefit">
+                            <span class="benefit-check">✓</span>
+                            <span>Mentoría y guía directiva</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="habilitador-card">
+                    <div class="habilitador-header">
+                        <div class="habilitador-numero">6</div>
+                        <div class="habilitador-titulo">Participación Estratégica</div>
+                    </div>
+                    <div class="habilitador-body">
+                        <div class="habilitador-icon">🤝</div>
+                        <p class="habilitador-text">Líderes invitados a participar en espacios coordinados para lograr objetivos propuestos</p>
+                        <div class="habilitador-benefit">
+                            <span class="benefit-check">✓</span>
+                            <span>Sinergia organizacional total</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Impacto -->
+        <div class="impact-section">
+            <div class="impact-content">
+                <div class="impact-logo">
+                    <span>✨</span>
+                    <span class="impact-logo-text">PSE</span>
+                    <span>✨</span>
+                </div>
+                <p class="impact-tagline">PROYECTO COLIBRÍ</p>
+                <div class="impact-main">Se merece lo mejor</div>
+                <div class="impact-secondary">Nosotros nos merecemos el mejor futuro</div>
+                <div class="impact-divider"></div>
+                <p class="impact-description">
+                    Estamos hablando de transformar el ecosistema de pagos en Colombia. Una responsabilidad compartida, un equipo con poder, una compañía comprometida.
+                </p>
+                <div class="impact-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Equipo Unificado</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Respaldo Ejecutivo</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Potencial</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>✨ Proyecto Colibrí: Transformando juntos el ecosistema de pagos en Colombia</p>
+            <p style="margin-top: 10px; font-size: 12px; color: #999;">Documento generado - Presentación ante Comité Directivo</p>
+        </div>
+    </div>
+
+    <script>
+        // Función para imprimir a PDF
+        function imprimirPDF() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
